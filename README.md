@@ -9,6 +9,7 @@ Python notebooks and an ImageJ macro for characterization and analysis of thin-f
 | Notebook | Purpose | Inputs | Outputs | References |
 |---|---|---|---|---|
 | [DOE_creation_analysis](DOE_creation_analysis.ipynb) | Creates full/fractional factorial Design of Experiments tables and analyzes results via Ordinary Least Squares (OLS) regression or Bayesian optimization (Ax platform). | Excel file with experimental results | `DOE plan.xlsx`, `OLS output.txt`, `Bayesian optimization output.xlsx`, contour plots | [Ax platform docs](https://ax.dev/docs/tutorials/gpei_hartmann_service/) |
+| [GDOES_analysis](GDOES_analysis.ipynb) | Plots elemental depth profiles from GDOES measurements and estimates layer thickness for each element using the Full Width at Half Maximum (FWHM) of its concentration profile. | GDOES `.txt` depth profile files (tab-separated, two header lines) | `{filename}_depth_profile.png`, `{filename}_fwhm_results.xlsx` | |
 | [EDX_PFD_files_reader](EDX_PFD_files_reader.ipynb) | Extracts atomic percentages of Cu, In, Ga, Se from EDX `.pdf` reports and computes CIGS compositional ratios: CGI = Cu/(Ga+In), GGI = Ga/(Ga+In), SCGI = Se/(Cu+Ga+In). | EDX `.pdf` files | `EDX results.xlsx` | |
 | [EQE_analysis](EQE_analysis.ipynb) | Computes short-circuit current density $J_{sc}$ by integrating EQE with the AM1.5G spectrum, and extracts the band gap $E_g$ via sigmoid fit (Almora) and linear Keller method. | EQE `.txt` files | `Parameters from EQE.xlsx`, individual EQE plots | [TU Delft OCW](https://ocw.tudelft.nl/wp-content/uploads/solar_energy_section_9_2.pdf) · [Almora et al., *Adv. Energy Mater.* 2021](https://onlinelibrary.wiley.com/doi/epdf/10.1002/aenm.202100022) · [Keller, ResearchGate](https://www.researchgate.net/publication/352019926) |
 | [LBIC_colormap](LBIC_colormap.ipynb) | Generates 2D current colormaps from Light Beam Induced Current (LBIC) scan data with a consistent color scale across all samples. | LBIC `.txt` matrix files | Individual and combined colormap figures | |
@@ -32,7 +33,7 @@ Python notebooks and an ImageJ macro for characterization and analysis of thin-f
 
 ```
 numpy pandas matplotlib scipy seaborn statsmodels
-dexpy pypdf chardet scikit-learn plotly ax-platform
+dexpy pypdf chardet scikit-learn plotly ax-platform openpyxl
 ```
 
 **ImageJ macro:** requires [Fiji](https://imagej.net/software/fiji/) or ImageJ with a calibrated SEM image.
